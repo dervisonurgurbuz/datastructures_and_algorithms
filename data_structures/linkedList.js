@@ -1,6 +1,7 @@
 
+// # Linklist append, prepend, insert and remove
+
 class LinkedList {
-    
     constructor(value){
         this.head = {
             value: value,
@@ -8,7 +9,6 @@ class LinkedList {
         }
         this.tail = this.head
         this.length = 1
-    
     }
 
     append(value){
@@ -23,7 +23,6 @@ class LinkedList {
        return this
     }
 
-
     prepend (value){
         const newNode = {
             value: value,
@@ -34,7 +33,6 @@ class LinkedList {
         this.length++;
         return this
     }
-
 
     insert(index, value) {
         if (index >= this.length) {
@@ -48,7 +46,7 @@ class LinkedList {
         newNode.next = leader.next; // Link the new node to the next node
         leader.next = newNode; // Link the leader to the new node
         this.length++; // Increase the length
-        return this // Return the updated list
+        return this.printList() // Return the updated list
 
         // ## Key Takeaway: In a singly linked list, you don't need direct access to previous nodes. 
         // By managing the next pointers of the leader and the new node, you can efficiently perform insertions.
@@ -62,13 +60,27 @@ class LinkedList {
         return currentNode;
       }
 
-      
+      remove(index){
+        let leader = this.traverseToIndex(index-1)
+
+        leader.next = leader.next.next
+        return this.printList()
+      }
+
+      printList() {
+        const array = [];
+        let currentNode = this.head;
+        while(currentNode !== null){
+            array.push(currentNode.value)
+            currentNode = currentNode.next
+        }
+        return array;
+      }
 }
 
 const myLinkedList = new LinkedList(19)
 myLinkedList.append(11)
 myLinkedList.append(11123)
-console.log(myLinkedList.prepend(99))
-
+myLinkedList.prepend(99)
 console.log(myLinkedList.insert(3,3))
- 
+console.log(myLinkedList.remove(2))
