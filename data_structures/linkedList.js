@@ -34,10 +34,41 @@ class LinkedList {
         this.length++;
         return this
     }
+
+
+    insert(index, value) {
+        if (index >= this.length) {
+          return this.append(value); // Append if index is out of bounds
+        }
+      
+        const newNode = { value, next: null };
+        const leader = this.traverseToIndex(index - 1); // Get the node before the index
+        console.log(leader)
+        console.log(leader.value)
+        newNode.next = leader.next; // Link the new node to the next node
+        leader.next = newNode; // Link the leader to the new node
+        this.length++; // Increase the length
+        return this // Return the updated list
+
+        // ## Key Takeaway: In a singly linked list, you don't need direct access to previous nodes. 
+        // By managing the next pointers of the leader and the new node, you can efficiently perform insertions.
+      }
+      
+      traverseToIndex(index) {
+        let currentNode = this.head;
+        for (let i = 0; i < index; i++) {
+          currentNode = currentNode.next;
+        }
+        return currentNode;
+      }
+
+      
 }
 
 const myLinkedList = new LinkedList(19)
-console.log(myLinkedList.append(11))
-console.log(myLinkedList.append(11123))
+myLinkedList.append(11)
+myLinkedList.append(11123)
 console.log(myLinkedList.prepend(99))
+
+console.log(myLinkedList.insert(3,3))
  
