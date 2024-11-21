@@ -1,5 +1,11 @@
+// # Inheritance and Plymorphism Study in Classes
+
+// Note: Classes are a template for creating objects. They encapsulate data with code to work on that data.
+
 // Parent Class
 class Vehicle {
+    
+// Note: The constructor method is a special method for creating and initializing an object created with a class.
     constructor(brand, maxSpeed) {
       this.brand = brand;
       this.maxSpeed = maxSpeed;
@@ -78,7 +84,7 @@ class Vehicle {
   console.log(truck.loadCargo(25)); // Should fail
   
 
-// # Key Takeaways
+// ## Key Takeaways
 // Inheritance: Subclasses (Car, Bicycle, Truck) inherit shared functionality (drive, stop) from the Vehicle class.
 // Overriding: Subclasses customize the drive method to provide behavior specific to their type.
 // Polymorphism: The drive method behaves differently based on the type of vehicle calling it.
