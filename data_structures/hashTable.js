@@ -2,11 +2,16 @@
 
 // Creating a hash table using Map
 let hashTable = new Map();
+let array = [1]
 
 // Adding key-value pairs
+hashTable.set(`${array[0]}`, 2);
 hashTable.set("name", "Alice");
 hashTable.set("age", 30);
 
+for (let [key, value] of hashTable) {
+    console.log(`${key} = ${value}`);
+  }
 // Accessing values
 console.log(hashTable.get("name")); // Output: "Alice"
 
