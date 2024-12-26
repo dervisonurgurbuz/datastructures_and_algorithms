@@ -1,8 +1,8 @@
 // # Stack class
-
+// ## Array is used to implement stack
 class Stack {
 
-    // Array is used to implement stack
+   
     constructor()
     {
         this.items = [];
